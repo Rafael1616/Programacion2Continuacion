@@ -24,14 +24,30 @@ namespace CapaConexion
                 "Data Source=RAFAEL-SALGUERO\\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True;");
             MessageBox.Show("Conexion Creada");
             conexion.Open();
-            string selectFrom = "SELECT * FROM [dbo].[Customers]";
+            
+            //-------------------------
+
+            String selectFrom = "";
+            selectFrom = selectFrom + "SELECT [CompanyName] " + "\n";
+            selectFrom = selectFrom + "      ,[ContactName] " + "\n";
+            selectFrom = selectFrom + "      ,[ContactTitle] " + "\n";
+            selectFrom = selectFrom + "      ,[Address] " + "\n";
+            selectFrom = selectFrom + "      ,[City] " + "\n";
+            selectFrom = selectFrom + "      ,[Region] " + "\n";
+            selectFrom = selectFrom + "      ,[PostalCode] " + "\n";
+            selectFrom = selectFrom + "      ,[Country] " + "\n";
+            selectFrom = selectFrom + "      ,[Phone] " + "\n";
+            selectFrom = selectFrom + "      ,[Fax] " + "\n";
+            selectFrom = selectFrom + "  FROM [dbo].[Customers]";
+
+            //-------------------------
 
             SqlCommand comando = new SqlCommand(selectFrom, conexion);
             SqlDataReader reader = comando.ExecuteReader();
 
             while (reader.Read())
             {
-                var CustomerID = reader[0];
+                var customerID = reader["CompanyName"];
             }
 
             MessageBox.Show("Conexion cerrada");
