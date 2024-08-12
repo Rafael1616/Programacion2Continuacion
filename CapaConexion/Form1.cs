@@ -37,5 +37,6 @@ namespace CapaConexion
             MessageBox.Show("Conexion cerrada");
             conexion.Close();
         }
+
     }
 }
