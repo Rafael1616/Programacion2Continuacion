@@ -14,6 +14,8 @@ namespace CapaConexion
 {
     public partial class Form1 : Form
     {
+
+        List<Customers> Customers = new List<Customers>();
         public Form1()
         {
             InitializeComponent();
@@ -46,8 +48,6 @@ namespace CapaConexion
             SqlCommand comando = new SqlCommand(selectFrom, conexion);
             SqlDataReader reader = comando.ExecuteReader();
 
-            List<Customers> Customers = new List<Customers>();
-
             while (reader.Read())
             {
                 Customers customers = new Customers();
@@ -65,9 +65,16 @@ namespace CapaConexion
                 Customers.Add(customers);
             }
 
+            dataGrid.DataSource = Customers;
+
             MessageBox.Show("Conexion cerrada");
             conexion.Close();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var filtro = Customers.FindAll(X => X.CompanyName.StartsWith(textBox1.Text));
+            dataGrid.DataSource = filtro;
+        }
     }
 }
