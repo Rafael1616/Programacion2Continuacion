@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,24 +35,62 @@ namespace DatosLayer
 
                     while (reader.Read())
                     {
-                        Customers customers = new Customers();
-                        customers.CompanyName = reader["CompanyName"] == DBNull.Value ? "" : (String)reader["CompanyName"];
-                        customers.ContactName = reader["ContactName"] == DBNull.Value ? "" : (String)reader["ContactName"];
-                        customers.ContactTitle = reader["ContactTitle"] == DBNull.Value ? "" : (String)reader["ContactTitle"];
-                        customers.Address = reader["Address"] == DBNull.Value ? "" : (String)reader["Address"];
-                        customers.City = reader["City"] == DBNull.Value ? "" : (String)reader["City"];
-                        customers.Region = reader["Region"] == DBNull.Value ? "" : (String)reader["Region"];
-                        customers.PostalCode = reader["PostalCode"] == DBNull.Value ? "" : (String)reader["PostalCode"];
-                        customers.Country = reader["Country"] == DBNull.Value ? "" : (String)reader["Country"];
-                        customers.Phone = reader["Phone"] == DBNull.Value ? "" : (String)reader["Phone"];
-                        customers.Fax = reader["Fax"] == DBNull.Value ? "" : (String)reader["Fax"];
-
-                        customer.Add(customers);
+                        var custo = LeerDelDataReader(reader);
+                        customer.Add(custo);
                     }
                     return customer;
                 }
             }
         }
 
+        public Customers OntenerPorID(String id)
+        {
+            using (var conexion = DataBase.GetSqlConnection())
+            {
+                String selectForID = "";
+                selectForID = selectForID + "SELECT [CustomerID] " + "\n";
+                selectForID = selectForID + "      ,[CompanyName] " + "\n";
+                selectForID = selectForID + "      ,[ContactName] " + "\n";
+                selectForID = selectForID + "      ,[ContactTitle] " + "\n";
+                selectForID = selectForID + "      ,[Address] " + "\n";
+                selectForID = selectForID + "      ,[City] " + "\n";
+                selectForID = selectForID + "      ,[Region] " + "\n";
+                selectForID = selectForID + "      ,[PostalCode] " + "\n";
+                selectForID = selectForID + "      ,[Country] " + "\n";
+                selectForID = selectForID + "      ,[Phone] " + "\n";
+                selectForID = selectForID + "      ,[Fax] " + "\n";
+                selectForID = selectForID + "  FROM [dbo].[Customers] " + "\n";
+                selectForID = selectForID + $"  WHERE CustomerID = '{id}'";
+
+                using (SqlCommand comando = new SqlCommand(selectForID, conexion))
+                {
+                    var reader = comando.ExecuteReader();
+                    Customers customer = null;
+                    //Validacion
+                    if (reader.Read())
+                    {
+                        customer = LeerDelDataReader(reader);
+                    }
+                    return customer;
+
+                }
+            }
+        }
+
+        public Customers LeerDelDataReader(SqlDataReader reader)
+        {
+            Customers customers = new Customers();
+            customers.CompanyName = reader["CompanyName"] == DBNull.Value ? "" : (String)reader["CompanyName"];
+            customers.ContactName = reader["ContactName"] == DBNull.Value ? "" : (String)reader["ContactName"];
+            customers.ContactTitle = reader["ContactTitle"] == DBNull.Value ? "" : (String)reader["ContactTitle"];
+            customers.Address = reader["Address"] == DBNull.Value ? "" : (String)reader["Address"];
+            customers.City = reader["City"] == DBNull.Value ? "" : (String)reader["City"];
+            customers.Region = reader["Region"] == DBNull.Value ? "" : (String)reader["Region"];
+            customers.PostalCode = reader["PostalCode"] == DBNull.Value ? "" : (String)reader["PostalCode"];
+            customers.Country = reader["Country"] == DBNull.Value ? "" : (String)reader["Country"];
+            customers.Phone = reader["Phone"] == DBNull.Value ? "" : (String)reader["Phone"];
+            customers.Fax = reader["Fax"] == DBNull.Value ? "" : (String)reader["Fax"];
+            return customers;
+        }
     }
 }
