@@ -10,4 +10,4 @@ C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\obj\Debug\CapaConexion.exe
 C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\obj\Debug\CapaConexion.pdb
 C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\bin\Debug\DatosLayer.dll
 C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\bin\Debug\DatosLayer.pdb
-C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\obj\Debug\CapaConexion.csproj.CopyComplete
+C:\Users\MINEDUCYT\Desktop\CapaConexion\CapaConexion\obj\Debug\CapaCone.C1BD2A79.Up2Date
