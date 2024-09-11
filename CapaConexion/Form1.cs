@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,6 +52,42 @@ namespace CapaConexion
                 txtBuscar.Text = cliente.CompanyName;
                 MessageBox.Show(cliente.CompanyName);
             }
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            var nuevoCliente = new Customers
+            {
+                CustomerID = tboxCustomerID.Text,
+                CompanyName = tboxCompanyName.Text,
+                ContactName = tboxContactName.Text,
+                ContactTitle = tboxContactTitle.Text,
+                Address = tboxAdress.Text,
+                City = tboxCity.Text
+            };
+            var resultado = 0;
+            if (validarCampoNull(nuevoCliente) == false)
+            {
+                resultado = customerRepository.InsertarCliente(nuevoCliente);
+                MessageBox.Show("Registro Ingresado Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos por favor" + resultado);
+            }
+        }
+
+        public Boolean validarCampoNull(Object objeto)
+        {
+            foreach (PropertyInfo property in objeto.GetType().GetProperties())
+            {
+                object value = property.GetValue(objeto, null);
+                if ((String)value == "")
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
