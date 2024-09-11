@@ -48,6 +48,7 @@
             this.btnInsertar = new System.Windows.Forms.Button();
             this.tboxContactName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,9 +98,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(626, 84);
+            this.btnBuscar.Location = new System.Drawing.Point(626, 77);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(98, 23);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar Cliente";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -194,7 +195,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(626, 379);
+            this.btnInsertar.Location = new System.Drawing.Point(557, 379);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(98, 23);
             this.btnInsertar.TabIndex = 18;
@@ -218,11 +219,22 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "ContactName";
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(676, 379);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(98, 23);
+            this.btnModificar.TabIndex = 21;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.tboxContactName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnInsertar);
@@ -274,6 +286,7 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.TextBox tboxContactName;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
 

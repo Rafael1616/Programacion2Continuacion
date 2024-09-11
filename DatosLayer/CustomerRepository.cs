@@ -82,6 +82,7 @@ namespace DatosLayer
         public Customers LeerDelDataReader(SqlDataReader reader)
         {
             Customers customers = new Customers();
+
             customers.CustomerID = reader["CustomerID"] == DBNull.Value ? "" : (String)reader["CustomerID"];
             customers.CompanyName = reader["CompanyName"] == DBNull.Value ? "" : (String)reader["CompanyName"];
             customers.ContactName = reader["ContactName"] == DBNull.Value ? "" : (String)reader["ContactName"];
@@ -128,6 +129,40 @@ namespace DatosLayer
                     return insertados;
                 }
             }
+        }
+        public int ActualizarCliente(Customers customer)
+        {
+            using (var conexion = DataBase.GetSqlConnection())
+            {
+                String ActualizarCustomerPorID = "";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "UPDATE [dbo].[Customers] " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "   SET [CustomerID] = @CustomerID " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "      ,[CompanyName] = @CompanyName " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "      ,[ContactName] = @ContactName " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "      ,[ContactTitle] = @ContactTitle " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "      ,[Address] = @Address " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + "      ,[City] = @City " + "\n";
+                ActualizarCustomerPorID = ActualizarCustomerPorID + " WHERE CustomerID= @CustomerID";
+                using (var comando = new SqlCommand(ActualizarCustomerPorID, conexion))
+                {
+                    int actualizados = parametrosCliente(customer, comando);
+                    return actualizados;
+                }
+            }
+
+            return 0;
+        }
+
+        public int parametrosCliente(Customers customer, SqlCommand comando)
+        {
+            comando.Parameters.AddWithValue("CustomerID", customer.CustomerID);
+            comando.Parameters.AddWithValue("CompanyName", customer.CompanyName);
+            comando.Parameters.AddWithValue("ContactName", customer.ContactName);
+            comando.Parameters.AddWithValue("ContactTitle", customer.ContactName);
+            comando.Parameters.AddWithValue("Address", customer.Address);
+            comando.Parameters.AddWithValue("City", customer.City);
+            var insertados = comando.ExecuteNonQuery();
+            return insertados;
         }
     }
 }

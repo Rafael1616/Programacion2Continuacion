@@ -47,25 +47,18 @@ namespace CapaConexion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             var cliente = customerRepository.OntenerPorID(txtBuscar.Text);
-            if(cliente != null)
-            {
-                txtBuscar.Text = cliente.CompanyName;
-                MessageBox.Show(cliente.CompanyName);
-            }
+            tboxCustomerID.Text = cliente.CustomerID;
+            tboxCompanyName.Text = cliente.CompanyName;
+            tboxContactName.Text = cliente.ContactName;
+            tboxContactTitle.Text = cliente.ContactTitle;
+            tboxAdress.Text = cliente.Address;
+            tboxCity.Text = cliente.City;
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            var nuevoCliente = new Customers
-            {
-                CustomerID = tboxCustomerID.Text,
-                CompanyName = tboxCompanyName.Text,
-                ContactName = tboxContactName.Text,
-                ContactTitle = tboxContactTitle.Text,
-                Address = tboxAdress.Text,
-                City = tboxCity.Text
-            };
             var resultado = 0;
+            var nuevoCliente = ObtenerNuevoCliente();
             if (validarCampoNull(nuevoCliente) == false)
             {
                 resultado = customerRepository.InsertarCliente(nuevoCliente);
@@ -88,6 +81,28 @@ namespace CapaConexion
                 }
             }
             return false;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var actualizarCliente = ObtenerNuevoCliente();
+            int actualizadas = customerRepository.ActualizarCliente(actualizarCliente);
+            MessageBox.Show($"Filas actualizadas = {actualizadas}");
+        }
+
+        private Customers ObtenerNuevoCliente()
+        {
+            var nuevoCliente = new Customers
+            {
+                CustomerID = tboxCustomerID.Text,
+                CompanyName = tboxCompanyName.Text,
+                ContactName = tboxContactName.Text,
+                ContactTitle = tboxContactTitle.Text,
+                Address = tboxAdress.Text,
+                City = tboxCity.Text
+            };
+
+            return nuevoCliente;
         }
     }
 }
