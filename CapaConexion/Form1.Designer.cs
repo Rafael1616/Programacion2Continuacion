@@ -49,6 +49,7 @@
             this.tboxContactName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(571, 126);
+            this.label2.Location = new System.Drawing.Point(571, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 5;
@@ -98,7 +99,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(626, 77);
+            this.btnBuscar.Location = new System.Drawing.Point(626, 65);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(98, 23);
             this.btnBuscar.TabIndex = 6;
@@ -108,14 +109,14 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(649, 36);
+            this.txtBuscar.Location = new System.Drawing.Point(649, 24);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(135, 20);
             this.txtBuscar.TabIndex = 7;
             // 
             // tboxCustomerID
             // 
-            this.tboxCustomerID.Location = new System.Drawing.Point(639, 123);
+            this.tboxCustomerID.Location = new System.Drawing.Point(639, 111);
             this.tboxCustomerID.Name = "tboxCustomerID";
             this.tboxCustomerID.Size = new System.Drawing.Size(135, 20);
             this.tboxCustomerID.TabIndex = 9;
@@ -123,7 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(575, 39);
+            this.label3.Location = new System.Drawing.Point(575, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 8;
@@ -131,7 +132,7 @@
             // 
             // tboxCompanyName
             // 
-            this.tboxCompanyName.Location = new System.Drawing.Point(639, 162);
+            this.tboxCompanyName.Location = new System.Drawing.Point(639, 150);
             this.tboxCompanyName.Name = "tboxCompanyName";
             this.tboxCompanyName.Size = new System.Drawing.Size(135, 20);
             this.tboxCompanyName.TabIndex = 11;
@@ -139,7 +140,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(554, 165);
+            this.label4.Location = new System.Drawing.Point(554, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 10;
@@ -147,7 +148,7 @@
             // 
             // tboxContactTitle
             // 
-            this.tboxContactTitle.Location = new System.Drawing.Point(639, 243);
+            this.tboxContactTitle.Location = new System.Drawing.Point(639, 231);
             this.tboxContactTitle.Name = "tboxContactTitle";
             this.tboxContactTitle.Size = new System.Drawing.Size(135, 20);
             this.tboxContactTitle.TabIndex = 13;
@@ -155,7 +156,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(564, 250);
+            this.label5.Location = new System.Drawing.Point(564, 238);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 12;
@@ -163,7 +164,7 @@
             // 
             // tboxAdress
             // 
-            this.tboxAdress.Location = new System.Drawing.Point(639, 284);
+            this.tboxAdress.Location = new System.Drawing.Point(639, 272);
             this.tboxAdress.Name = "tboxAdress";
             this.tboxAdress.Size = new System.Drawing.Size(135, 20);
             this.tboxAdress.TabIndex = 15;
@@ -171,7 +172,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(592, 287);
+            this.label6.Location = new System.Drawing.Point(592, 275);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 14;
@@ -179,7 +180,7 @@
             // 
             // tboxCity
             // 
-            this.tboxCity.Location = new System.Drawing.Point(639, 331);
+            this.tboxCity.Location = new System.Drawing.Point(639, 319);
             this.tboxCity.Name = "tboxCity";
             this.tboxCity.Size = new System.Drawing.Size(135, 20);
             this.tboxCity.TabIndex = 17;
@@ -187,7 +188,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(606, 334);
+            this.label7.Location = new System.Drawing.Point(606, 322);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 16;
@@ -195,7 +196,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(557, 379);
+            this.btnInsertar.Location = new System.Drawing.Point(557, 367);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(98, 23);
             this.btnInsertar.TabIndex = 18;
@@ -205,7 +206,7 @@
             // 
             // tboxContactName
             // 
-            this.tboxContactName.Location = new System.Drawing.Point(639, 205);
+            this.tboxContactName.Location = new System.Drawing.Point(639, 193);
             this.tboxContactName.Name = "tboxContactName";
             this.tboxContactName.Size = new System.Drawing.Size(135, 20);
             this.tboxContactName.TabIndex = 20;
@@ -213,7 +214,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(554, 208);
+            this.label8.Location = new System.Drawing.Point(554, 196);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 19;
@@ -221,7 +222,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(676, 379);
+            this.btnModificar.Location = new System.Drawing.Point(676, 367);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(98, 23);
             this.btnModificar.TabIndex = 21;
@@ -229,11 +230,22 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(626, 415);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(98, 23);
+            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.tboxContactName);
             this.Controls.Add(this.label8);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.TextBox tboxContactName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 
